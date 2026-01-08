@@ -1,26 +1,178 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Primary Colors - Florist Palette */
+  --color-cream: #FDF8F3;
+  --color-cream-dark: #F5EDE4;
+  --color-blush: #E8C4C4;
+  --color-blush-light: #F5E1E1;
+  --color-blush-dark: #D4A5A5;
+  --color-sage: #9CAF88;
+  --color-sage-light: #B8C9A9;
+  --color-sage-dark: #7A9568;
+  --color-burgundy: #722F37;
+  --color-burgundy-light: #8B4049;
+  --color-mocha: #8B7355;
+  --color-mocha-light: #A89076;
+  --color-charcoal: #2D2D2D;
+  --color-charcoal-light: #4A4A4A;
+
+  /* Semantic Colors */
+  --color-background: #FDF8F3;
+  --color-foreground: #2D2D2D;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  /* CSS Variables for inline styles and font references */
+  --cream: #FDF8F3;
+  --cream-dark: #F5EDE4;
+  --blush: #E8C4C4;
+  --blush-light: #F5E1E1;
+  --blush-dark: #D4A5A5;
+  --sage: #9CAF88;
+  --sage-light: #B8C9A9;
+  --sage-dark: #7A9568;
+  --burgundy: #722F37;
+  --burgundy-light: #8B4049;
+  --mocha: #8B7355;
+  --mocha-light: #A89076;
+  --charcoal: #2D2D2D;
+  --charcoal-light: #4A4A4A;
+}
+
+/* Tailwind CSS 4 includes its own reset, no need for manual reset */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sage);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sage-dark);
+}
+
+/* Selection color */
+::selection {
+  background: var(--blush);
+  color: var(--charcoal);
+}
+
+/* Smooth animations for all elements */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Gradient backgrounds */
+.gradient-sage {
+  background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%);
+}
+
+.gradient-blush {
+  background: linear-gradient(135deg, var(--blush-light) 0%, var(--blush) 100%);
+}
+
+.gradient-hero {
+  background: linear-gradient(
+    180deg,
+    var(--cream) 0%,
+    var(--blush-light) 50%,
+    var(--cream) 100%
+  );
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(253, 248, 243, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Petal fall animation */
+@keyframes petalFall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.animate-petal {
+  animation: petalFall linear infinite;
+}
+
+/* Bloom animation */
+@keyframes bloom {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-bloom {
+  animation: bloom 0.8s ease-out forwards;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--cream) 0%,
+    var(--blush-light) 50%,
+    var(--cream) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
 }
