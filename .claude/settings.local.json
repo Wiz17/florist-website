@@ -7,7 +7,11 @@
       "Bash(cat:*)",
       "Bash(git pull:*)",
       "Bash(ping:*)",
-      "Bash(git remote:*)"
+      "Bash(git remote:*)",
+      "Bash(dir:*)",
+      "Bash(powershell -command \"Get-ChildItem d:\\\\florist-website\\\\public -Recurse | Select-Object FullName\")",
+      "Bash(powershell -command \"Get-ChildItem ''d:\\\\florist-website\\\\public\\\\about'' | Select-Object Name\")",
+      "Bash(powershell -command:*)"
     ]
   }
 }

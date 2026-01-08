@@ -13,7 +13,7 @@ import {
 
 export default function Home() {
   return (
-    <main className="relative">
+    <div className="relative">
       <FloatingPetals />
       <HeroSection />
       <ServicesSection />
@@ -22,6 +22,6 @@ export default function Home() {
       <TestimonialsSection />
       <InstagramSection />
       <CTASection />
-    </main>
+    </div>
   );
 }

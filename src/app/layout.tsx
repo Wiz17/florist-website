@@ -38,10 +38,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${lato.variable} antialiased`}>
-        <Navigation />
-        {children}
-        <Footer />
+      <body className={`${playfair.variable} ${lato.variable} antialiased overflow-x-hidden`}>
+        <div className="relative w-full max-w-[1920px] mx-auto overflow-x-hidden">
+          <Navigation />
+          <main className="w-full">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

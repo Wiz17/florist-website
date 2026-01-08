@@ -68,7 +68,7 @@ export default function ShopPage() {
       : products.filter((p) => p.category === activeCategory);
 
   return (
-    <main className="relative min-h-screen bg-cream">
+    <div className="relative min-h-screen bg-cream">
       <FloatingPetals />
 
       {/* Hero Banner */}
@@ -205,6 +205,6 @@ export default function ShopPage() {
           </motion.div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -6,7 +6,7 @@ import { slideInLeft, slideInRight } from "@/lib/animations";
 
 export function StorySection() {
   return (
-    <section className="py-24 px-6 bg-blush-light" id="about">
+    <section className="py-24 px-6 bg-blush-light overflow-hidden" id="about">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -72,7 +72,7 @@ export function StorySection() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
               viewport={{ once: true }}
-              className="absolute -bottom-8 -left-8 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-white z-20"
+              className="absolute -bottom-8 left-0 lg:-left-8 w-36 h-36 md:w-48 md:h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-white z-20"
             >
               <ImagePlaceholder
                 src="/story/story-small.png"
@@ -82,9 +82,9 @@ export function StorySection() {
               />
             </motion.div>
 
-            {/* Decorative elements */}
-            <div className="absolute -bottom-6 right-12 w-48 h-48 bg-sage rounded-2xl -z-10" />
-            <div className="absolute -top-6 -right-6 w-32 h-32 bg-burgundy rounded-2xl -z-10" />
+            {/* Decorative elements - hidden on mobile to prevent overflow */}
+            <div className="hidden md:block absolute -bottom-6 right-12 w-48 h-48 bg-sage rounded-2xl -z-10" />
+            <div className="hidden md:block absolute -top-6 -right-6 w-32 h-32 bg-burgundy rounded-2xl -z-10" />
           </motion.div>
         </div>
       </div>

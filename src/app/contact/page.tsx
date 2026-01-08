@@ -37,7 +37,7 @@ const contactInfo = [
 
 export default function ContactPage() {
   return (
-    <main className="relative min-h-screen bg-cream">
+    <div className="relative min-h-screen bg-cream">
       <FloatingPetals />
 
       {/* Hero Section */}
@@ -199,10 +199,10 @@ export default function ContactPage() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="space-y-8"
+              className="space-y-8 h-full flex flex-col"
             >
               {/* Map placeholder */}
-              <div className="h-80 bg-sage-light rounded-2xl overflow-hidden relative">
+              <div className="flex-1 min-h-[300px] bg-sage-light rounded-2xl overflow-hidden relative">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-white/80 flex items-center justify-center text-burgundy">
@@ -247,28 +247,10 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Social Links */}
-              <div className="bg-blush-light p-8 rounded-2xl">
-                <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-charcoal mb-4">
-                  Follow Us
-                </h3>
-                <div className="flex gap-4">
-                  {["Instagram", "Facebook", "Pinterest"].map((social) => (
-                    <motion.a
-                      key={social}
-                      href="#"
-                      whileHover={{ y: -3 }}
-                      className="px-6 py-2 bg-white rounded-full font-[family-name:var(--font-lato)] text-charcoal hover:text-burgundy transition-colors"
-                    >
-                      {social}
-                    </motion.a>
-                  ))}
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

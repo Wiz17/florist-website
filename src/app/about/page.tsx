@@ -9,19 +9,19 @@ const team = [
   {
     name: "Sarah Mitchell",
     role: "Founder & Lead Designer",
-    image: "/story/story-main.png",
+    image: "/about/team-sarah.png",
     gradient: "linear-gradient(135deg, #E8C4C4 0%, #D4A5A5 100%)",
   },
   {
     name: "James Chen",
     role: "Senior Florist",
-    image: "/story/story-small.png",
+    image: "/about/team-james.png",
     gradient: "linear-gradient(135deg, #B8C9A9 0%, #9CAF88 100%)",
   },
   {
     name: "Emily Rose",
     role: "Wedding Specialist",
-    image: "/story/story-main.png",
+    image: "/about/team-emily.png",
     gradient: "linear-gradient(135deg, #B8A9C9 0%, #9683A9 100%)",
   },
 ];
@@ -58,7 +58,7 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <main className="relative min-h-screen bg-cream">
+    <div className="relative min-h-screen bg-cream">
       <FloatingPetals />
 
       {/* Hero Section */}
@@ -106,7 +106,7 @@ export default function AboutPage() {
                 className="relative z-10 rounded-2xl overflow-hidden shadow-2xl"
               >
                 <ImagePlaceholder
-                  src="/story/story-main.png"
+                  src="/about/about-hero.png"
                   alt="Our flower studio"
                   className="h-[500px] w-full"
                   gradient="linear-gradient(135deg, #E8C4C4 0%, #B8C9A9 100%)"
@@ -235,6 +235,6 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
