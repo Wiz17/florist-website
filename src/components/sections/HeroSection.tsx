@@ -8,14 +8,14 @@ import { fadeInUp } from "@/lib/animations";
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-cream px-6">
-      <div className="max-w-7xl mx-auto w-full pt-24 pb-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto w-full pt-24 pb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Text content */}
         <motion.div className="relative z-10">
           <motion.p
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
-            className="font-[family-name:var(--font-lato)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-6"
+            className="font-[family-name:var(--font-lato)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4 md:mb-6"
           >
             Artisan Florist Since 2010
           </motion.p>
@@ -24,7 +24,7 @@ export function HeroSection() {
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.2 }}
-            className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl lg:text-7xl font-bold text-charcoal leading-tight mb-8"
+            className="font-[family-name:var(--font-playfair)] text-4xl md:text-6xl lg:text-7xl font-bold text-charcoal leading-tight mb-4 md:mb-8"
           >
             Where Every
             <br />
@@ -36,17 +36,19 @@ export function HeroSection() {
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.4 }}
-            className="font-[family-name:var(--font-lato)] text-lg md:text-xl text-charcoal-light max-w-lg mb-10"
+            className="font-[family-name:var(--font-lato)] text-base md:text-xl text-charcoal-light max-w-lg mb-6 md:mb-10"
           >
             Handcrafted floral arrangements that capture the essence of
             nature&apos;s beauty. From intimate bouquets to grand celebrations.
           </motion.p>
+
+          {/* Desktop buttons - hidden on mobile */}
           <motion.div
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="hidden md:flex flex-row gap-4"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -68,7 +70,7 @@ export function HeroSection() {
         </motion.div>
 
         {/* Hero Images Grid */}
-        <div className="relative h-[400px] md:h-[500px] lg:h-[550px]">
+        <div className="relative h-[350px] md:h-[500px] lg:h-[550px]">
           {/* Main large image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 50 }}
@@ -129,6 +131,32 @@ export function HeroSection() {
             />
           </motion.div>
         </div>
+
+        {/* Mobile buttons - shown only on mobile, below image */}
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.6 }}
+          className="flex md:hidden flex-col sm:flex-row gap-3 w-full lg:col-span-2"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative flex-1 px-6 py-3 rounded-full font-[family-name:var(--font-lato)] text-base font-semibold border-2 border-[#2D2D2D] bg-transparent overflow-hidden group"
+          >
+            <span className="relative z-10 text-[#2D2D2D] group-hover:text-white transition-colors duration-300">Explore Collections</span>
+            <span className="absolute inset-0 bg-[#2D2D2D] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative flex-1 px-6 py-3 rounded-full font-[family-name:var(--font-lato)] text-base font-semibold border-2 border-[#2D2D2D] bg-transparent overflow-hidden group"
+          >
+            <span className="relative z-10 text-[#2D2D2D] group-hover:text-white transition-colors duration-300">Book Consultation</span>
+            <span className="absolute inset-0 bg-[#2D2D2D] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-right rounded-full" />
+          </motion.button>
+        </motion.div>
       </div>
 
     </section>
