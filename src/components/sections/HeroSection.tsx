@@ -24,7 +24,7 @@ export function HeroSection() {
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.2 }}
-            className="font-[family-name:var(--font-playfair)] text-4xl md:text-6xl lg:text-7xl font-bold text-charcoal leading-tight mb-4 md:mb-8"
+            className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl lg:text-7xl font-bold text-charcoal leading-tight mb-4 md:mb-8"
           >
             Where Every
             <br />
@@ -36,7 +36,7 @@ export function HeroSection() {
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.4 }}
-            className="font-[family-name:var(--font-lato)] text-base md:text-xl text-charcoal-light max-w-lg mb-6 md:mb-10"
+            className="font-[family-name:var(--font-lato)] text-lg md:text-xl text-charcoal-light max-w-lg mb-6 md:mb-10"
           >
             Handcrafted floral arrangements that capture the essence of
             nature&apos;s beauty. From intimate bouquets to grand celebrations.

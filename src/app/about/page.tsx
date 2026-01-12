@@ -63,7 +63,7 @@ export default function AboutPage() {
 
       {/* Hero Section */}
       <section className="pt-32 pb-24 px-6 bg-cream relative overflow-hidden">
-        <motion.div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-blush-light opacity-40 blur-3xl" />
+        
         <motion.div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-sage-light opacity-30 blur-3xl" />
 
         <div className="max-w-7xl mx-auto relative z-10">
