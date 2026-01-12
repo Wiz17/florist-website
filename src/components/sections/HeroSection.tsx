@@ -69,14 +69,14 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
 
-        {/* Hero Images Grid */}
-        <div className="relative h-[350px] md:h-[500px] lg:h-[550px]">
-          {/* Main large image */}
+        {/* Hero Images Grid - Stacked Cards Layout */}
+        <div className="relative h-[380px] md:h-[520px] lg:h-[580px]">
+          {/* Main hero image - large card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 50 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="absolute top-0 left-[15%] w-[85%] h-[70%] rounded-3xl overflow-hidden shadow-2xl"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="absolute top-0 right-0 w-[88%] md:w-[85%] h-[65%] md:h-[70%] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl"
           >
             <ImagePlaceholder
               src="/hero-main.png"
@@ -86,12 +86,12 @@ export function HeroSection() {
             />
           </motion.div>
 
-          {/* Secondary image - bottom left */}
+          {/* Bottom left card - overlapping */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, x: -50 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="absolute bottom-0 left-0 w-[50%] h-[45%] rounded-3xl overflow-hidden shadow-xl border-4 border-white"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="absolute bottom-[8%] md:bottom-[5%] left-0 w-[55%] md:w-[50%] h-[45%] md:h-[48%] rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border-[3px] border-white z-10"
           >
             <ImagePlaceholder
               src="/hero-secondary.png"
@@ -101,35 +101,43 @@ export function HeroSection() {
             />
           </motion.div>
 
-          {/* Small floating image - top left */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="absolute top-[12%] left-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden shadow-lg animate-float"
-          >
-            <ImagePlaceholder
-              src="/hero-small.png"
-              alt="Floating flower"
-              className="w-full h-full"
-              gradient="linear-gradient(135deg, #F5E1E1 0%, #EAB8A1 100%)"
-            />
-          </motion.div>
-
-          {/* Fourth image - bottom right */}
+          {/* Top left small card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="absolute bottom-[5%] right-0 w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden shadow-lg border-4 border-white"
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="absolute top-[5%] left-0 w-[35%] md:w-[32%] h-[28%] md:h-[30%] rounded-xl md:rounded-2xl overflow-hidden shadow-lg border-[3px] border-white"
           >
             <ImagePlaceholder
               src="/hero-small.png"
               alt="Elegant bouquet"
               className="w-full h-full"
+              gradient="linear-gradient(135deg, #F5E1E1 0%, #EAB8A1 100%)"
+            />
+          </motion.div>
+
+          {/* Bottom right accent card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
+            className="absolute bottom-0 right-[5%] md:right-[8%] w-[30%] md:w-[28%] h-[25%] md:h-[28%] rounded-xl md:rounded-2xl overflow-hidden shadow-lg border-[3px] border-white"
+          >
+            <ImagePlaceholder
+              src="/hero-small.png"
+              alt="Floating flower"
+              className="w-full h-full"
               gradient="linear-gradient(135deg, #B8A9C9 0%, #9683A9 100%)"
             />
           </motion.div>
+
+          {/* Decorative sage shape behind */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="absolute -bottom-4 right-[15%] w-24 h-24 md:w-32 md:h-32 rounded-full bg-sage/20 -z-10"
+          />
         </div>
 
         {/* Mobile buttons - shown only on mobile, below image */}
