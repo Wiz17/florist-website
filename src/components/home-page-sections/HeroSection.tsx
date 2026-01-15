@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BloomTitle } from "@/components/BloomTitle";
+import { BloomTitle } from "@/components/ui/BloomTitle";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { fadeInUp } from "@/lib/animations";
 

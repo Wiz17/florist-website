@@ -3,10 +3,10 @@
 import Image from "next/image";
 
 interface ImagePlaceholderProps {
-  src: string;
+  src?: string;
   alt: string;
   className?: string;
-  gradient: string;
+  gradient?: string;
 }
 
 export function ImagePlaceholder({
@@ -27,8 +27,8 @@ export function ImagePlaceholder({
         />
       ) : (
         <div
-          className="absolute inset-0 flex items-center justify-center"
-          style={{ background: gradient }}
+          className="absolute inset-0 flex items-center justify-center bg-gray-200"
+          style={gradient ? { background: gradient } : undefined}
         >
           <span className="text-white/60 font-[family-name:var(--font-lato)] text-sm text-center px-4">
             {alt}

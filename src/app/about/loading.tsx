@@ -1,5 +1,5 @@
 import { FloatingPetalsLoader } from "@/components/ui/FloatingPetalsLoader";
 
 export default function AboutLoading() {
-  return <FloatingPetalsLoader message="Loading our story..." />;
+  return <FloatingPetalsLoader message="Loading our story..." fullScreen={true}/>;
 }

@@ -9,7 +9,7 @@ import {
   TestimonialsSection,
   InstagramSection,
   CTASection,
-} from "@/components/sections";
+} from "@/components/home-page-sections";
 
 export default function Home() {
   return (

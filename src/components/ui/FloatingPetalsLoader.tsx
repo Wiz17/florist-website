@@ -2,11 +2,15 @@
 
 interface FloatingPetalsLoaderProps {
   message?: string;
+  fullScreen?: boolean;
 }
 
-export function FloatingPetalsLoader({ message = "Loading..." }: FloatingPetalsLoaderProps) {
+export function FloatingPetalsLoader({ 
+  message = "Loading...",
+  fullScreen = false 
+}: FloatingPetalsLoaderProps) {
   return (
-    <div className="min-h-screen bg-cream flex items-center justify-center">
+    <div className={`${fullScreen ? 'min-h-screen' : 'py-16'} bg-cream flex items-center justify-center`}>
       <div className="text-center">
         {/* Animated flower loader */}
         <div className="relative w-20 h-20 mx-auto mb-6">
