@@ -16,6 +16,7 @@ export default function Home() {
     <div className="relative">
       <FloatingPetals />
       <HeroSection />
+      
       <ServicesSection />
       <FeaturedSection />
       <StorySection />
