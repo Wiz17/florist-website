@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { FestivalBadge } from "@/components/ui/FestivalBadge";
+import { FestivalCountdown } from "@/components/ui/FestivalCountdown";
 import { fadeInUp, staggerContainer, scaleIn } from "@/lib/animations";
-import { getFeaturedProducts, urlFor, type Product } from "@/lib/sanity";
+import { getFeaturedProducts, getActiveFestivals, getProductPrice, urlFor, type Product } from "@/lib/sanity";
 import Link from "next/link";
 
 export function FeaturedSection() {
@@ -12,6 +14,13 @@ export function FeaturedSection() {
     queryKey: ["featured-products"],
     queryFn: getFeaturedProducts,
     select: (data) => data.slice(0, 6), // Limit to 6 products for the featured section
+  });
+
+  const { data: activeFestivals = [] } = useQuery({
+    queryKey: ['active-festivals'],
+    queryFn: getActiveFestivals,
+    refetchInterval: 60 * 1000, // Refetch every minute
+    staleTime: 0,
   });
   return (
     <section className="py-24 px-6 bg-cream" id="shop">
@@ -76,6 +85,8 @@ export function FeaturedSection() {
                 ? urlFor(product.images[0]).width(800).height(800).url()
                 : undefined;
 
+              const priceInfo = getProductPrice(product, activeFestivals);
+
               return (
                 <motion.div
                   key={product._id}
@@ -96,9 +107,14 @@ export function FeaturedSection() {
                       />
                     </motion.div>
                     {product.tag && (
-                      <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-[family-name:var(--font-lato)] text-charcoal">
+                      <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-[family-name:var(--font-lato)] text-charcoal z-10">
                         {product.tag}
                       </span>
+                    )}
+                    {priceInfo.isAdjusted && priceInfo.activeFestival && (
+                      <div className="absolute top-4 right-4 z-10">
+                        <FestivalBadge festival={priceInfo.activeFestival} />
+                      </div>
                     )}
                     <motion.div
                       initial={{ opacity: 0 }}
@@ -114,12 +130,28 @@ export function FeaturedSection() {
                       </motion.button>
                     </motion.div>
                   </div>
-                  <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-charcoal group-hover:text-burgundy transition-colors">
-                    {product.name}
-                  </h3>
-                  <p className="font-[family-name:var(--font-lato)] text-sage-dark text-lg">
-                    ${product.price}
-                  </p>
+                  <div>
+                    <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-charcoal group-hover:text-burgundy transition-colors">
+                      {product.name}
+                    </h3>
+                    {priceInfo.isAdjusted ? (
+                      <div className="flex items-center gap-2 mt-1">
+                        <span className="font-[family-name:var(--font-lato)] text-sage-dark text-lg font-semibold">
+                          ${priceInfo.currentPrice.toFixed(2)}
+                        </span>
+                        <span className="font-[family-name:var(--font-lato)] text-sm line-through text-charcoal-light">
+                          ${priceInfo.originalPrice.toFixed(2)}
+                        </span>
+                      </div>
+                    ) : (
+                      <p className="font-[family-name:var(--font-lato)] text-sage-dark text-lg">
+                        ${priceInfo.originalPrice.toFixed(2)}
+                      </p>
+                    )}
+                    {priceInfo.isAdjusted && priceInfo.activeFestival && (
+                      <FestivalCountdown endDate={priceInfo.activeFestival.endDate} />
+                    )}
+                  </div>
                 </motion.div>
               );
             })}

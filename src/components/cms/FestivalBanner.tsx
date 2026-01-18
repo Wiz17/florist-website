@@ -15,6 +15,8 @@ export function FestivalBanner() {
   const { data: festival, isLoading } = useQuery({
     queryKey: ['active-festival'],
     queryFn: getActiveFestival,
+    refetchInterval: 60 * 1000, // Refetch every minute to check if date has passed
+    staleTime: 0, // Always consider data stale to ensure fresh date checks
   });
 
   // Measure banner height for spacer
@@ -24,12 +26,33 @@ export function FestivalBanner() {
     }
   }, [isVisible, festival]);
 
+  // Client-side date validation as safety check
+  const isWithinDateRange = (festival: Festival | null): boolean => {
+    if (!festival) return false;
+    
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    const startDate = new Date(festival.startDate);
+    startDate.setHours(0, 0, 0, 0);
+    
+    const endDate = new Date(festival.endDate);
+    endDate.setHours(23, 59, 59, 999);
+    
+    return today >= startDate && today <= endDate;
+  };
+
   if (isLoading) {
     return null; // Still loading
   }
 
   if (!festival) {
     return null; // No active festival found
+  }
+
+  // Double-check date range on client side (handles caching issues)
+  if (!isWithinDateRange(festival)) {
+    return null; // Festival is outside date range
   }
 
   // Ensure we have at least some content to show

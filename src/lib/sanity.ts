@@ -17,12 +17,23 @@ export function urlFor(source: any) {
 }
 
 // Type definitions
+export interface PriceAdjustment {
+  enabled: boolean;
+  adjustmentType: 'fixed' | 'percentage';
+  adjustmentValue: number;
+  adjustmentDirection: 'increase' | 'decrease';
+  applicableTo: 'all' | 'categories' | 'tags';
+  categories?: string[];
+  tags?: string[];
+}
+
 export interface Festival {
   _id: string;
   name: string;
   startDate: string;
   endDate: string;
   isActive: boolean;
+  priceAdjustment?: PriceAdjustment;
   bannerImage?: {
     asset: {
       _ref: string;
@@ -55,6 +66,7 @@ export interface Product {
   tag?: string;
   description?: string;
   featured?: boolean;
+  inStock?: boolean;
 }
 
 // Festival queries
@@ -62,23 +74,30 @@ export async function getActiveFestival(): Promise<Festival | null> {
   const today = new Date().toISOString().split('T')[0];
   
   try {
-    // First try to get active festival within date range
-    let festival = await client.fetch<Festival>(
+    // Get active festival within date range only
+    const festival = await client.fetch<Festival>(
       `*[_type == "festival" && isActive == true && startDate <= $today && endDate >= $today][0]`,
       { today }
     );
-    
-    // If no festival found, try to get any active festival (for testing)
-    if (!festival) {
-      festival = await client.fetch<Festival>(
-        `*[_type == "festival" && isActive == true][0]`
-      );
-    }
     
     return festival || null;
   } catch (error) {
     console.error('Error fetching active festival:', error);
     return null;
+  }
+}
+
+export async function getActiveFestivals(): Promise<Festival[]> {
+  const today = new Date().toISOString().split('T')[0];
+  
+  try {
+    return await client.fetch<Festival[]>(
+      `*[_type == "festival" && isActive == true && startDate <= $today && endDate >= $today] | order(startDate desc)`,
+      { today }
+    );
+  } catch (error) {
+    console.error('Error fetching active festivals:', error);
+    return [];
   }
 }
 
@@ -139,4 +158,91 @@ export async function getProductsByCategory(category: string): Promise<Product[]
     console.error('Error fetching products by category:', error);
     return [];
   }
+}
+
+// Price calculation helper
+export function getProductPrice(
+  product: Product, 
+  activeFestivals: Festival[]
+): { currentPrice: number; originalPrice: number; activeFestival: Festival | null; isAdjusted: boolean } {
+  const originalPrice = product.price;
+  
+  // If no active festivals, return regular price
+  if (!activeFestivals || activeFestivals.length === 0) {
+    return {
+      currentPrice: originalPrice,
+      originalPrice: originalPrice,
+      activeFestival: null,
+      isAdjusted: false,
+    };
+  }
+
+  // Find first active festival with price adjustment enabled
+  const festivalWithAdjustment = activeFestivals.find(
+    f => f.priceAdjustment?.enabled === true
+  );
+
+  if (!festivalWithAdjustment || !festivalWithAdjustment.priceAdjustment) {
+    return {
+      currentPrice: originalPrice,
+      originalPrice: originalPrice,
+      activeFestival: null,
+      isAdjusted: false,
+    };
+  }
+
+  const adjustment = festivalWithAdjustment.priceAdjustment;
+
+  // Check if adjustment applies to this product
+  const appliesToProduct = 
+    adjustment.applicableTo === 'all' ||
+    (adjustment.applicableTo === 'categories' && 
+     product.category && 
+     adjustment.categories?.includes(product.category)) ||
+    (adjustment.applicableTo === 'tags' && 
+     product.tag && 
+     adjustment.tags?.includes(product.tag));
+
+  if (!appliesToProduct) {
+    return {
+      currentPrice: originalPrice,
+      originalPrice: originalPrice,
+      activeFestival: null,
+      isAdjusted: false,
+    };
+  }
+
+  // Calculate adjusted price
+  let adjustedPrice = originalPrice;
+
+  if (adjustment.adjustmentType === 'fixed') {
+    // Fixed amount adjustment
+    if (adjustment.adjustmentDirection === 'increase') {
+      adjustedPrice = originalPrice + adjustment.adjustmentValue;
+    } else {
+      adjustedPrice = Math.max(0, originalPrice - adjustment.adjustmentValue);
+    }
+  } else {
+    // Percentage adjustment
+    const percentage = adjustment.adjustmentValue / 100;
+    if (adjustment.adjustmentDirection === 'increase') {
+      adjustedPrice = originalPrice * (1 + percentage);
+    } else {
+      adjustedPrice = originalPrice * (1 - percentage);
+    }
+    adjustedPrice = Math.max(0, adjustedPrice);
+  }
+
+  // Round to 2 decimal places
+  adjustedPrice = Math.round(adjustedPrice * 100) / 100;
+
+  // Only show adjustment if discounted price is less than original
+  const isDiscount = adjustedPrice < originalPrice;
+
+  return {
+    currentPrice: adjustedPrice,
+    originalPrice: originalPrice,
+    activeFestival: festivalWithAdjustment,
+    isAdjusted: isDiscount,
+  };
 }

@@ -7,7 +7,7 @@ import { urlFor } from "@/lib/sanity";
 import { ProductCard } from "../components/ProductCard";
 import { ProductsError } from "../components/ProductsError";
 import { ProductsEmpty } from "../components/ProductsEmpty";
-import type { Product } from "@/lib/sanity";
+import type { Product, Festival } from "@/lib/sanity";
 
 interface ProductsSectionProps {
   products: Product[];
@@ -16,6 +16,7 @@ interface ProductsSectionProps {
   isError: boolean;
   error: Error | unknown;
   onRetry: () => void;
+  activeFestivals?: Festival[];
 }
 
 export function ProductsSection({
@@ -25,6 +26,7 @@ export function ProductsSection({
   isError,
   error,
   onRetry,
+  activeFestivals = [],
 }: ProductsSectionProps) {
   // Early return pattern - Option 1
   if (isLoading || isRefetching) {
@@ -80,6 +82,7 @@ export function ProductsSection({
                 key={product._id}
                 product={product}
                 imageUrl={imageUrl}
+                activeFestivals={activeFestivals}
               />
             );
           })}

@@ -2,15 +2,20 @@
 
 import { motion } from "framer-motion";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { FestivalBadge } from "@/components/ui/FestivalBadge";
+import { FestivalCountdown } from "@/components/ui/FestivalCountdown";
 import { scaleIn } from "@/lib/animations";
-import { type Product } from "@/lib/sanity";
+import { type Product, getProductPrice } from "@/lib/sanity";
 
 interface ProductCardProps {
   product: Product;
   imageUrl?: string;
+  activeFestivals?: any[];
 }
 
-export function ProductCard({ product, imageUrl }: ProductCardProps) {
+export function ProductCard({ product, imageUrl, activeFestivals = [] }: ProductCardProps) {
+  const priceInfo = getProductPrice(product, activeFestivals);
+
   return (
     <motion.div
       key={product._id}
@@ -32,9 +37,14 @@ export function ProductCard({ product, imageUrl }: ProductCardProps) {
           />
         </motion.div>
         {product.tag && (
-          <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-[family-name:var(--font-lato)] text-charcoal">
+          <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-[family-name:var(--font-lato)] text-charcoal z-10">
             {product.tag}
           </span>
+        )}
+        {priceInfo.isAdjusted && priceInfo.activeFestival && (
+          <div className="absolute top-4 right-4 z-10">
+            <FestivalBadge festival={priceInfo.activeFestival} />
+          </div>
         )}
         <motion.div
           initial={{ opacity: 0 }}
@@ -51,7 +61,7 @@ export function ProductCard({ product, imageUrl }: ProductCardProps) {
         </motion.div>
       </div>
       <div className="flex justify-between items-start">
-        <div>
+        <div className="flex-1">
           <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-charcoal group-hover:text-burgundy transition-colors">
             {product.name}
           </h3>
@@ -60,10 +70,28 @@ export function ProductCard({ product, imageUrl }: ProductCardProps) {
               {product.category}
             </p>
           )}
+          {priceInfo.isAdjusted && priceInfo.activeFestival && (
+            <div className="mt-2">
+              <FestivalCountdown endDate={priceInfo.activeFestival.endDate} />
+            </div>
+          )}
         </div>
-        <p className="font-[family-name:var(--font-playfair)] text-xl font-bold text-burgundy">
-          ${product.price}
-        </p>
+        <div className="text-right">
+          {priceInfo.isAdjusted ? (
+            <div className="flex flex-col items-end gap-1">
+              <span className="font-[family-name:var(--font-playfair)] text-xl font-bold text-burgundy">
+                ${priceInfo.currentPrice.toFixed(2)}
+              </span>
+              <span className="font-[family-name:var(--font-lato)] text-sm line-through text-charcoal-light">
+                ${priceInfo.originalPrice.toFixed(2)}
+              </span>
+            </div>
+          ) : (
+            <p className="font-[family-name:var(--font-playfair)] text-xl font-bold text-burgundy">
+              ${priceInfo.originalPrice.toFixed(2)}
+            </p>
+          )}
+        </div>
       </div>
     </motion.div>
   );

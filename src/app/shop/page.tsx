@@ -17,6 +17,7 @@ export default function ShopPage() {
     error,
     refetch,
     isRefetching,
+    activeFestivals,
   } = useShopHandler();
 
   return (
@@ -35,6 +36,7 @@ export default function ShopPage() {
         isError={isError}
         error={error}
         onRetry={() => refetch()}
+        activeFestivals={activeFestivals}
       />
     </div>
   );
