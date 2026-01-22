@@ -11,9 +11,15 @@ interface ProductCardProps {
   product: Product;
   imageUrl?: string;
   activeFestivals?: any[];
+  buttonText?: string;
 }
 
-export function ProductCard({ product, imageUrl, activeFestivals = [] }: ProductCardProps) {
+export function ProductCard({
+  product,
+  imageUrl,
+  activeFestivals = [],
+  buttonText = "Quick View",
+}: ProductCardProps) {
   const priceInfo = getProductPrice(product, activeFestivals);
 
   return (
@@ -49,49 +55,38 @@ export function ProductCard({ product, imageUrl, activeFestivals = [] }: Product
         <motion.div
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}
-          className="absolute inset-0 bg-black/20 flex items-center justify-center gap-4"
+          className="absolute inset-0 bg-black/20 flex items-center justify-center"
         >
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             className="bg-white text-charcoal px-6 py-3 rounded-full font-[family-name:var(--font-lato)]"
           >
-            Add to Cart
+            {buttonText}
           </motion.button>
         </motion.div>
       </div>
-      <div className="flex justify-between items-start">
-        <div className="flex-1">
-          <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-charcoal group-hover:text-burgundy transition-colors">
-            {product.name}
-          </h3>
-          {product.category && (
-            <p className="font-[family-name:var(--font-lato)] text-sm text-charcoal-light">
-              {product.category}
-            </p>
-          )}
-          {priceInfo.isAdjusted && priceInfo.activeFestival && (
-            <div className="mt-2">
-              <FestivalCountdown endDate={priceInfo.activeFestival.endDate} />
-            </div>
-          )}
-        </div>
-        <div className="text-right">
-          {priceInfo.isAdjusted ? (
-            <div className="flex flex-col items-end gap-1">
-              <span className="font-[family-name:var(--font-playfair)] text-xl font-bold text-burgundy">
-                ${priceInfo.currentPrice.toFixed(2)}
-              </span>
-              <span className="font-[family-name:var(--font-lato)] text-sm line-through text-charcoal-light">
-                ${priceInfo.originalPrice.toFixed(2)}
-              </span>
-            </div>
-          ) : (
-            <p className="font-[family-name:var(--font-playfair)] text-xl font-bold text-burgundy">
+      <div>
+        <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-charcoal group-hover:text-burgundy transition-colors">
+          {product.name}
+        </h3>
+        {priceInfo.isAdjusted ? (
+          <div className="flex items-center gap-2 mt-1">
+            <span className="font-[family-name:var(--font-lato)] text-sage-dark text-lg font-semibold">
+              ${priceInfo.currentPrice.toFixed(2)}
+            </span>
+            <span className="font-[family-name:var(--font-lato)] text-sm line-through text-charcoal-light">
               ${priceInfo.originalPrice.toFixed(2)}
-            </p>
-          )}
-        </div>
+            </span>
+          </div>
+        ) : (
+          <p className="font-[family-name:var(--font-lato)] text-sage-dark text-lg">
+            ${priceInfo.originalPrice.toFixed(2)}
+          </p>
+        )}
+        {priceInfo.isAdjusted && priceInfo.activeFestival && (
+          <FestivalCountdown endDate={priceInfo.activeFestival.endDate} />
+        )}
       </div>
     </motion.div>
   );

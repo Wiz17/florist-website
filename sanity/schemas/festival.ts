@@ -27,6 +27,7 @@ export default {
       type: 'boolean',
       description: 'Manually enable/disable this banner',
       initialValue: true,
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'bannerImage',
@@ -35,24 +36,28 @@ export default {
       options: {
         hotspot: true,
       },
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'title',
       title: 'Banner Title',
       type: 'string',
       description: 'Main heading text for the banner',
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'description',
       title: 'Description',
       type: 'text',
       description: 'Subtitle or description text',
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'offerText',
       title: 'Offer Text',
       type: 'string',
       description: 'e.g., "20% OFF" or "Special Offer"',
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'ctaText',
@@ -60,6 +65,7 @@ export default {
       type: 'string',
       description: 'Text for the call-to-action button',
       initialValue: 'Shop Now',
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'ctaLink',
@@ -67,18 +73,15 @@ export default {
       type: 'string',
       description: 'URL where the button should link to',
       initialValue: '/shop',
-    },
-    {
-      name: 'backgroundColor',
-      title: 'Background Color',
-      type: 'string',
-      description: 'Hex color code (e.g., #FF6B6B)',
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'textColor',
       title: 'Text Color',
       type: 'string',
       description: 'Hex color code for text',
+      initialValue: '#FFFFFF',
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'priceAdjustment',
