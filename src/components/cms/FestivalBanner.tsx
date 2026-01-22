@@ -93,10 +93,10 @@ export function FestivalBanner() {
                 <div className="absolute inset-0 bg-black/30" />
               </div>
 
-              <div className="relative px-3 py-2.5 sm:px-4 sm:py-3 md:px-5 md:py-3.5 lg:px-6 lg:py-4">
-                <div className="flex flex-row items-center justify-between gap-2 sm:gap-3 md:gap-4 lg:gap-5">
+              <div className="relative px-4 py-3.5 sm:px-4 sm:py-3 md:px-5 md:py-3.5 lg:px-6 lg:py-4">
+                <div className="flex flex-row items-center justify-between gap-3 sm:gap-3 md:gap-4 lg:gap-5">
                   {/* Left Section - Content */}
-                  <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-1 min-w-0">
+                  <div className="flex items-center gap-3 sm:gap-3 md:gap-4 flex-1 min-w-0">
                     {/* Text Content */}
                     <div className="flex-1 min-w-0">
                       {festival.offerText && (
@@ -104,7 +104,7 @@ export function FestivalBanner() {
                           initial={{ x: -20, opacity: 0 }}
                           animate={{ x: 0, opacity: 1 }}
                           transition={{ delay: 0.1 }}
-                          className="inline-block mb-1 sm:mb-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 lg:px-3.5 lg:py-1.5 rounded-full font-[family-name:var(--font-lato)] font-bold text-[10px] sm:text-xs md:text-sm lg:text-sm bg-white/25 backdrop-blur-md border border-white/30 shadow-lg"
+                          className="inline-block mb-1.5 sm:mb-1.5 px-2.5 py-1 sm:px-2.5 sm:py-1 md:px-3 md:py-1 lg:px-3.5 lg:py-1.5 rounded-full font-[family-name:var(--font-lato)] font-bold text-xs sm:text-xs md:text-sm lg:text-sm bg-white/25 backdrop-blur-md border border-white/30 shadow-lg"
                           style={{ color: textColor }}
                         >
                           {festival.offerText}
@@ -116,7 +116,7 @@ export function FestivalBanner() {
                           initial={{ x: -20, opacity: 0 }}
                           animate={{ x: 0, opacity: 1 }}
                           transition={{ delay: 0.2 }}
-                          className="font-[family-name:var(--font-playfair)] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-0.5 sm:mb-1 leading-tight truncate"
+                          className="font-[family-name:var(--font-playfair)] text-base sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-1 sm:mb-1 leading-tight truncate"
                           style={{ color: textColor }}
                         >
                           {festival.title}
@@ -138,7 +138,7 @@ export function FestivalBanner() {
                   </div>
 
                   {/* Right Section - CTA & Close */}
-                  <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 flex-shrink-0">
+                  <div className="flex items-center gap-2.5 sm:gap-2.5 md:gap-3 lg:gap-4 flex-shrink-0">
                     {/* CTA Button */}
                     {festival.ctaText && festival.ctaLink && (
                       <Link href={festival.ctaLink} className="flex-shrink-0">
@@ -148,7 +148,7 @@ export function FestivalBanner() {
                           transition={{ delay: 0.4 }}
                           whileHover={{ scale: 1.05, y: -2 }}
                           whileTap={{ scale: 0.95 }}
-                          className="relative px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 rounded-full font-[family-name:var(--font-lato)] font-semibold text-[11px] sm:text-xs md:text-sm lg:text-base bg-white text-burgundy hover:bg-cream transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-1 sm:gap-1.5 md:gap-2 group overflow-hidden whitespace-nowrap"
+                          className="relative px-4 py-2 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 rounded-full font-[family-name:var(--font-lato)] font-semibold text-xs sm:text-xs md:text-sm lg:text-base bg-white text-burgundy hover:bg-cream transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-1.5 sm:gap-1.5 md:gap-2 group overflow-hidden whitespace-nowrap"
                         >
                           <span className="relative z-10">{festival.ctaText}</span>
                           <motion.span
@@ -172,7 +172,7 @@ export function FestivalBanner() {
                       whileHover={{ scale: 1.1, rotate: 90 }}
                       whileTap={{ scale: 0.9 }}
                       onClick={() => setIsVisible(false)}
-                      className="flex-shrink-0 p-1.5 sm:p-2 md:p-2.5 lg:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 border border-white/20"
+                      className="flex-shrink-0 p-2 sm:p-2 md:p-2.5 lg:p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 border border-white/20"
                       aria-label="Close banner"
                     >
                       <svg
