@@ -74,7 +74,7 @@ export function FestivalBanner() {
   }
 
   const imageUrl = festival.bannerImage
-    ? urlFor(festival.bannerImage).width(1920).height(200).url()
+    ? urlFor(festival.bannerImage).width(1920).url()
     : null;
 
   const textColor = festival.textColor || '#FFFFFF';
