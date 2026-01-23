@@ -15,7 +15,7 @@ export function HeroSection() {
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
-            className="font-[family-name:var(--font-lato)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4 md:mb-6"
+            className="font-[family-name:var(--font-lato)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-3"
           >
             Artisan Florist Since 2010
           </motion.p>
@@ -24,7 +24,7 @@ export function HeroSection() {
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.2 }}
-            className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl lg:text-7xl font-bold text-charcoal leading-tight mb-4 md:mb-8"
+            className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl lg:text-7xl font-bold text-charcoal leading-[1.1] mb-1 md:mb-2"
           >
             Where Every
             <br />
@@ -36,7 +36,7 @@ export function HeroSection() {
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.4 }}
-            className="font-[family-name:var(--font-lato)] text-lg md:text-xl text-charcoal-light max-w-lg mb-6 md:mb-10"
+            className="font-[family-name:var(--font-lato)] text-lg md:text-xl text-charcoal-light max-w-lg mb-2 md:mb-3"
           >
             Handcrafted floral arrangements that capture the essence of
             nature&apos;s beauty. From intimate bouquets to grand celebrations.
