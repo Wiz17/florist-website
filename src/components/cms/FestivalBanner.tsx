@@ -9,8 +9,20 @@ import { getActiveFestival, urlFor, type Festival } from '@/lib/sanity';
 
 export function FestivalBanner() {
   const [isVisible, setIsVisible] = useState(true);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const [bannerHeight, setBannerHeight] = useState(0);
   const bannerRef = useRef<HTMLDivElement>(null);
+
+  // Show banner only after user scrolls 150px
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 150) {
+        setHasScrolled(true);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const { data: festival, isLoading } = useQuery({
     queryKey: ['active-festival'],
@@ -70,11 +82,11 @@ export function FestivalBanner() {
   return (
     <>
       <AnimatePresence>
-        {isVisible && (
+        {isVisible && hasScrolled && (
           <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 100, opacity: 0 }}
+            initial={{ x: '100%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: '100%', opacity: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="fixed bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 w-[92%] sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] max-w-3xl z-40 shadow-2xl rounded-xl sm:rounded-xl md:rounded-2xl overflow-hidden mx-auto"
             ref={bannerRef}
