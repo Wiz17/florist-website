@@ -60,7 +60,7 @@ export function Navigation() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
         className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
-          hasAnnouncement ? "top-9" : "top-0"
+          hasAnnouncement ? "top-11 sm:top-9" : "top-0"
         } ${
           scrolled
             ? "bg-white/95 backdrop-blur-md shadow-lg py-2"
