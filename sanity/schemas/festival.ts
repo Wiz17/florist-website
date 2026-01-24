@@ -84,6 +84,12 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
+      name: 'announcementText',
+      title: 'Announcement Bar Text',
+      type: 'string',
+      description: 'Optional: Shows a thin bar at the top of the page (e.g., "Valentine\'s Day Sale - 20% OFF all bouquets"). Leave empty to hide.',
+    },
+    {
       name: 'priceAdjustment',
       title: 'Price Adjustment',
       type: 'object',

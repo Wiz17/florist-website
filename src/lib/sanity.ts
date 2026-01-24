@@ -1,5 +1,5 @@
 import { createClient } from '@sanity/client';
-import imageUrlBuilder from '@sanity/image-url';
+import { createImageUrlBuilder } from '@sanity/image-url';
 
 // Initialize Sanity client
 export const client = createClient({
@@ -10,7 +10,7 @@ export const client = createClient({
 });
 
 // Image URL builder for optimized images
-const builder = imageUrlBuilder(client);
+const builder = createImageUrlBuilder(client);
 
 export function urlFor(source: any) {
   return builder.image(source);
@@ -46,6 +46,7 @@ export interface Festival {
   ctaText?: string;
   ctaLink?: string;
   textColor?: string;
+  announcementText?: string;
 }
 
 export interface Product {
