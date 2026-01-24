@@ -8,7 +8,7 @@ import { fadeInUp } from "@/lib/animations";
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-cream px-6">
-      <div className="max-w-7xl mx-auto w-full pt-24 pb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="max-w-7xl mx-auto w-full pt-6 pb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Text content */}
         <motion.div className="relative z-10">
           <motion.p

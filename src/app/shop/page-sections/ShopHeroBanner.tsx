@@ -5,7 +5,7 @@ import { fadeInUp } from "@/lib/animations";
 
 export function ShopHeroBanner() {
   return (
-    <section className="pt-32 pb-16 px-6 bg-cream relative overflow-hidden">
+    <section className="pt-6 md:pt-10 pb-16 px-6 bg-cream relative overflow-hidden">
       <motion.div
         className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-sage-light opacity-30 blur-3xl"
       />

@@ -15,9 +15,11 @@ export function ConditionalLayout({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="relative w-full max-w-[1920px] mx-auto overflow-x-hidden">
-      <AnnouncementBar />
-      <Navigation />
+    <div className="relative w-full max-w-[1920px] mx-auto overflow-x-clip">
+      <div className="sticky top-0 z-50">
+        <AnnouncementBar />
+        <Navigation />
+      </div>
       <FestivalBanner />
       <main className="w-full pt-0">
         {children}

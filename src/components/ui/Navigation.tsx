@@ -2,9 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
-import { getActiveFestival } from "@/lib/sanity";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -16,14 +14,6 @@ const navItems = [
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const { data: festival } = useQuery({
-    queryKey: ['active-festival'],
-    queryFn: getActiveFestival,
-    staleTime: 60 * 1000,
-  });
-
-  const hasAnnouncement = !!(festival?.announcementText);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,9 +49,7 @@ export function Navigation() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
-          hasAnnouncement ? "top-11 sm:top-9" : "top-0"
-        } ${
+        className={`transition-all duration-500 ${
           scrolled
             ? "bg-white/95 backdrop-blur-md shadow-lg py-2"
             : "bg-transparent py-4"

@@ -25,7 +25,7 @@ export function AnnouncementBar() {
         animate={{ height: 'auto', opacity: 1 }}
         exit={{ height: 0, opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="fixed top-0 left-0 right-0 bg-burgundy text-white text-center overflow-hidden z-[60]"
+        className="bg-burgundy text-white text-center overflow-hidden"
       >
         <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-2 sm:px-8 py-1 sm:py-2">
           <span className="font-[family-name:var(--font-lato)] text-xs sm:text-sm font-medium tracking-wide">
