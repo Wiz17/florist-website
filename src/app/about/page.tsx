@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
-import { FloatingPetals } from "@/components/ui/FloatingPetals";
 import { fadeInUp, staggerContainer, slideInLeft, slideInRight } from "@/lib/animations";
 
 const team = [
@@ -59,7 +58,6 @@ const values = [
 export default function AboutPage() {
   return (
     <div className="relative min-h-screen bg-cream">
-      <FloatingPetals />
 
       {/* Hero Section */}
       <section className="pt-6 md:pt-10 pb-16 md:pb-24 px-6 bg-cream relative overflow-hidden">

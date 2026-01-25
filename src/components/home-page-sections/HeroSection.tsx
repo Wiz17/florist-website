@@ -1,5 +1,4 @@
-"use client";
-
+'use client'
 import { motion } from "framer-motion";
 import { BloomTitle } from "@/components/ui/BloomTitle";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
@@ -7,10 +6,10 @@ import { fadeInUp } from "@/lib/animations";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-cream px-6">
-      <div className="max-w-7xl mx-auto w-full pt-6 pb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    <section className="relative flex items-center overflow-hidden bg-cream px-6">
+      <div className="max-w-7xl mx-auto w-full py-4 md:py-6 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-stretch">
         {/* Text content */}
-        <motion.div className="relative z-10">
+        <motion.div className="relative z-10 flex flex-col justify-center">
           <motion.p
             variants={fadeInUp}
             initial="hidden"
@@ -70,7 +69,7 @@ export function HeroSection() {
         </motion.div>
 
         {/* Hero Images Grid - Stacked Cards Layout */}
-        <div className="relative h-[380px] md:h-[520px] lg:h-[580px]">
+        <div className="relative h-[380px] md:h-[520px] lg:h-full lg:min-h-[500px]">
           {/* Main hero image - large card */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}

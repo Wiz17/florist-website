@@ -1,6 +1,5 @@
 "use client";
 
-import { FloatingPetals } from "@/components/ui/FloatingPetals";
 import { useShopHandler } from "./hooks/useShopHandler";
 import { ShopHeroBanner } from "./page-sections/ShopHeroBanner";
 import { CategoryFilter } from "./page-sections/CategoryFilter";
@@ -22,7 +21,6 @@ export default function ShopPage() {
 
   return (
     <div className="relative min-h-screen bg-cream">
-      <FloatingPetals />
       <ShopHeroBanner />
       <CategoryFilter
         categories={categories}

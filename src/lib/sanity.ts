@@ -69,17 +69,26 @@ export interface Product {
   inStock?: boolean;
 }
 
+// Helper to get local date in YYYY-MM-DD format
+function getLocalDateString(): string {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
 // Festival queries
 export async function getActiveFestival(): Promise<Festival | null> {
-  const today = new Date().toISOString().split('T')[0];
-  
+  const today = getLocalDateString(); // Use local date, not UTC
+
   try {
     // Get active festival within date range only
     const festival = await client.fetch<Festival>(
       `*[_type == "festival" && isActive == true && startDate <= $today && endDate >= $today][0]`,
       { today }
     );
-    
+
     return festival || null;
   } catch (error) {
     console.error('Error fetching active festival:', error);
@@ -88,8 +97,8 @@ export async function getActiveFestival(): Promise<Festival | null> {
 }
 
 export async function getActiveFestivals(): Promise<Festival[]> {
-  const today = new Date().toISOString().split('T')[0];
-  
+  const today = getLocalDateString(); // Use local date, not UTC
+
   try {
     return await client.fetch<Festival[]>(
       `*[_type == "festival" && isActive == true && startDate <= $today && endDate >= $today] | order(startDate desc)`,

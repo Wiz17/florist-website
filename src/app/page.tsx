@@ -1,6 +1,3 @@
-"use client";
-
-import { FloatingPetals } from "@/components/ui/FloatingPetals";
 import {
   HeroSection,
   ServicesSection,
@@ -14,9 +11,7 @@ import {
 export default function Home() {
   return (
     <div className="relative">
-      <FloatingPetals />
       <HeroSection />
-      
       <ServicesSection />
       <FeaturedSection />
       <StorySection />

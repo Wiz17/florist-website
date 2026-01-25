@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FloatingPetals } from "@/components/ui/FloatingPetals";
 import { fadeInUp, staggerContainer, slideInLeft, slideInRight } from "@/lib/animations";
 
 const contactInfo = [
@@ -38,7 +37,6 @@ const contactInfo = [
 export default function ContactPage() {
   return (
     <div className="relative min-h-screen bg-cream">
-      <FloatingPetals />
 
       {/* Hero Section */}
       <section className="pt-6 md:pt-10 pb-16 px-6 bg-cream relative overflow-hidden">
