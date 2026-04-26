@@ -15,7 +15,7 @@ export function ShopHeroBanner() {
           variants={fadeInUp}
           initial="hidden"
           animate="visible"
-          className="font-[family-name:var(--font-urbanist)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
+          className="text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
         >
           Our Collection
         </motion.p>
@@ -24,7 +24,7 @@ export function ShopHeroBanner() {
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.1 }}
-          className="font-[family-name:var(--font-urbanist)] text-5xl md:text-6xl font-bold text-charcoal mb-6"
+          className="text-5xl md:text-6xl font-bold text-charcoal mb-6"
         >
           Shop Flowers
         </motion.h1>
@@ -33,7 +33,7 @@ export function ShopHeroBanner() {
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.2 }}
-          className="font-[family-name:var(--font-urbanist)] text-lg text-charcoal-light max-w-2xl mx-auto"
+          className="text-lg text-charcoal-light max-w-2xl mx-auto"
         >
           Discover our handcrafted floral arrangements, perfect for every occasion.
           Each bouquet is made with love and the freshest blooms.

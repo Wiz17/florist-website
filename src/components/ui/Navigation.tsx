@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 const navItems = [
@@ -14,6 +14,8 @@ const navItems = [
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,16 +25,48 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
+  // Body scroll lock while drawer is open (preserves prior overflow value)
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    if (!mobileMenuOpen) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = original;
     };
+  }, [mobileMenuOpen]);
+
+  // Escape key + focus trap when drawer is open; restore focus on close
+  useEffect(() => {
+    if (!mobileMenuOpen) {
+      triggerRef.current?.focus();
+      return;
+    }
+
+    const drawer = drawerRef.current;
+    const focusables = drawer?.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    focusables?.[0]?.focus();
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileMenuOpen(false);
+        return;
+      }
+      if (e.key !== "Tab" || !focusables || focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
   }, [mobileMenuOpen]);
 
   const toggleMobileMenu = () => {
@@ -59,7 +93,7 @@ export function Navigation() {
           <Link href="/">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="font-[family-name:var(--font-urbanist)] text-2xl font-bold text-burgundy cursor-pointer"
+              className="text-2xl font-bold text-burgundy cursor-pointer"
             >
               Bloom & Petal
             </motion.div>
@@ -71,7 +105,7 @@ export function Navigation() {
               <Link key={item.name} href={item.href}>
                 <motion.span
                   whileHover={{ y: -2 }}
-                  className={`font-[family-name:var(--font-urbanist)] transition-colors relative group cursor-pointer ${
+                  className={`transition-colors relative group cursor-pointer ${
                     scrolled
                       ? "text-charcoal hover:text-burgundy"
                       : "text-charcoal hover:text-burgundy"
@@ -89,7 +123,7 @@ export function Navigation() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative px-6 py-2.5 rounded-full font-[family-name:var(--font-urbanist)] font-semibold border-2 border-[#2D2D2D] bg-transparent overflow-hidden group"
+              className="relative px-6 py-2.5 rounded-full font-semibold border-2 border-[#2D2D2D] bg-transparent overflow-hidden group"
             >
               <span className="relative z-10 text-[#2D2D2D] group-hover:text-white transition-colors duration-300">
                 Order Now
@@ -100,9 +134,12 @@ export function Navigation() {
 
           {/* Mobile Hamburger Button */}
           <button
+            ref={triggerRef}
             onClick={toggleMobileMenu}
             className="md:hidden relative w-8 h-8 flex flex-col justify-center items-center z-50"
-            aria-label="Toggle mobile menu"
+            aria-label={mobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-drawer"
           >
             <motion.span
               animate={{
@@ -147,6 +184,11 @@ export function Navigation() {
 
             {/* Drawer */}
             <motion.div
+              id="mobile-drawer"
+              ref={drawerRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Site navigation"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -164,7 +206,7 @@ export function Navigation() {
                       transition={{ delay: index * 0.1 }}
                     >
                       <Link href={item.href} onClick={closeMobileMenu}>
-                        <span className="block py-3 px-4 font-[family-name:var(--font-urbanist)] text-lg text-charcoal hover:text-burgundy hover:bg-sage/10 rounded-lg transition-all duration-200">
+                        <span className="block py-3 px-4 text-lg text-charcoal hover:text-burgundy hover:bg-sage/10 rounded-lg transition-all duration-200">
                           {item.name}
                         </span>
                       </Link>
@@ -182,7 +224,7 @@ export function Navigation() {
                   transition={{ delay: 0.4 }}
                 >
                   <Link href="/shop" onClick={closeMobileMenu}>
-                    <button className="w-full py-3 px-6 rounded-full font-[family-name:var(--font-urbanist)] font-semibold bg-[#2D2D2D] text-white hover:bg-burgundy transition-colors duration-300">
+                    <button className="w-full py-3 px-6 rounded-full font-semibold bg-[#2D2D2D] text-white hover:bg-burgundy transition-colors duration-300">
                       Order Now
                     </button>
                   </Link>
@@ -190,7 +232,7 @@ export function Navigation() {
 
                 {/* Footer decoration */}
                 <div className="mt-auto">
-                  <p className="font-[family-name:var(--font-urbanist)] text-sm text-gray-400 text-center">
+                  <p className="text-sm text-gray-400 text-center">
                     Bloom & Petal
                   </p>
                 </div>

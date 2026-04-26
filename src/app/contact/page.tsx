@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, type FormEvent } from "react";
 import { fadeInUp, staggerContainer, slideInLeft, slideInRight } from "@/lib/animations";
 
 const contactInfo = [
@@ -34,7 +35,20 @@ const contactInfo = [
   },
 ];
 
+type FormStatus = "idle" | "submitting" | "success" | "error";
+
 export default function ContactPage() {
+  const [status, setStatus] = useState<FormStatus>("idle");
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("submitting");
+    setTimeout(() => {
+      setStatus("success");
+      (e.target as HTMLFormElement).reset();
+    }, 600);
+  };
+
   return (
     <div className="relative min-h-screen bg-cream">
 
@@ -48,7 +62,7 @@ export default function ContactPage() {
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
-            className="font-[family-name:var(--font-urbanist)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
+            className="text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
           >
             Get In Touch
           </motion.p>
@@ -57,7 +71,7 @@ export default function ContactPage() {
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.1 }}
-            className="font-[family-name:var(--font-urbanist)] text-5xl md:text-6xl font-bold text-charcoal mb-6"
+            className="text-5xl md:text-6xl font-bold text-charcoal mb-6"
           >
             Contact Us
           </motion.h1>
@@ -66,7 +80,7 @@ export default function ContactPage() {
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.2 }}
-            className="font-[family-name:var(--font-urbanist)] text-lg text-charcoal-light max-w-2xl mx-auto"
+            className="text-lg text-charcoal-light max-w-2xl mx-auto"
           >
             Have a question or want to place a custom order? We&apos;d love to hear from you.
             Reach out and let&apos;s create something beautiful together.
@@ -93,13 +107,13 @@ export default function ContactPage() {
                 <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-blush-light flex items-center justify-center text-burgundy">
                   {info.icon}
                 </div>
-                <h3 className="font-[family-name:var(--font-urbanist)] text-xl font-bold text-charcoal mb-3">
+                <h3 className="text-xl font-bold text-charcoal mb-3">
                   {info.title}
                 </h3>
                 {info.details.map((detail, index) => (
                   <p
                     key={index}
-                    className="font-[family-name:var(--font-urbanist)] text-charcoal-light"
+                    className="text-charcoal-light"
                   >
                     {detail}
                   </p>
@@ -122,47 +136,66 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="bg-white p-8 md:p-12 rounded-2xl shadow-lg"
             >
-              <h2 className="font-[family-name:var(--font-urbanist)] text-3xl font-bold text-charcoal mb-6">
+              <h2 className="text-3xl font-bold text-charcoal mb-6">
                 Send Us a Message
               </h2>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit} noValidate>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block font-[family-name:var(--font-urbanist)] text-charcoal mb-2">
+                    <label htmlFor="firstName" className="block text-charcoal mb-2">
                       First Name
                     </label>
                     <input
+                      id="firstName"
+                      name="firstName"
                       type="text"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-burgundy focus:outline-none transition-colors font-[family-name:var(--font-urbanist)]"
+                      autoComplete="given-name"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-burgundy focus:outline-none transition-colors"
                       placeholder="John"
                     />
                   </div>
                   <div>
-                    <label className="block font-[family-name:var(--font-urbanist)] text-charcoal mb-2">
+                    <label htmlFor="lastName" className="block text-charcoal mb-2">
                       Last Name
                     </label>
                     <input
+                      id="lastName"
+                      name="lastName"
                       type="text"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-burgundy focus:outline-none transition-colors font-[family-name:var(--font-urbanist)]"
+                      autoComplete="family-name"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-burgundy focus:outline-none transition-colors"
                       placeholder="Doe"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block font-[family-name:var(--font-urbanist)] text-charcoal mb-2">
+                  <label htmlFor="email" className="block text-charcoal mb-2">
                     Email
                   </label>
                   <input
+                    id="email"
+                    name="email"
                     type="email"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-burgundy focus:outline-none transition-colors font-[family-name:var(--font-urbanist)]"
+                    inputMode="email"
+                    autoComplete="email"
+                    spellCheck={false}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-burgundy focus:outline-none transition-colors"
                     placeholder="john@example.com"
                   />
                 </div>
                 <div>
-                  <label className="block font-[family-name:var(--font-urbanist)] text-charcoal mb-2">
+                  <label htmlFor="subject" className="block text-charcoal mb-2">
                     Subject
                   </label>
-                  <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-burgundy focus:outline-none transition-colors font-[family-name:var(--font-urbanist)] bg-white">
+                  <select
+                    id="subject"
+                    name="subject"
+                    defaultValue="General Inquiry"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-burgundy focus:outline-none transition-colors bg-white"
+                  >
                     <option>General Inquiry</option>
                     <option>Custom Order</option>
                     <option>Wedding Consultation</option>
@@ -171,23 +204,35 @@ export default function ContactPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block font-[family-name:var(--font-urbanist)] text-charcoal mb-2">
+                  <label htmlFor="message" className="block text-charcoal mb-2">
                     Message
                   </label>
                   <textarea
+                    id="message"
+                    name="message"
                     rows={5}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-burgundy focus:outline-none transition-colors font-[family-name:var(--font-urbanist)] resize-none"
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-burgundy focus:outline-none transition-colors resize-none"
                     placeholder="Tell us about your floral needs..."
                   />
                 </div>
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-burgundy text-white py-4 rounded-full font-[family-name:var(--font-urbanist)] text-lg hover:bg-burgundy/90 transition-colors"
+                  disabled={status === "submitting"}
+                  whileHover={{ scale: status === "submitting" ? 1 : 1.02 }}
+                  whileTap={{ scale: status === "submitting" ? 1 : 0.98 }}
+                  className="w-full bg-burgundy text-white py-4 rounded-full text-lg hover:bg-burgundy/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {status === "submitting" ? "Sending…" : "Send Message"}
                 </motion.button>
+                <div role="status" aria-live="polite" className="min-h-[1.5rem] text-sm">
+                  {status === "success" && (
+                    <p className="text-sage-dark">Thanks! We&apos;ll be in touch within 24 hours.</p>
+                  )}
+                  {status === "error" && (
+                    <p className="text-burgundy">Something went wrong. Please try again or email us directly.</p>
+                  )}
+                </div>
               </form>
             </motion.div>
 
@@ -209,10 +254,10 @@ export default function ContactPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                       </svg>
                     </div>
-                    <p className="font-[family-name:var(--font-urbanist)] text-xl font-bold text-charcoal">
+                    <p className="text-xl font-bold text-charcoal">
                       Find Us Here
                     </p>
-                    <p className="font-[family-name:var(--font-urbanist)] text-charcoal-light">
+                    <p className="text-charcoal-light">
                       123 Flower Street, Garden City
                     </p>
                   </div>
@@ -221,7 +266,7 @@ export default function ContactPage() {
 
               {/* Store Hours */}
               <div className="bg-white p-8 rounded-2xl shadow-lg">
-                <h3 className="font-[family-name:var(--font-urbanist)] text-2xl font-bold text-charcoal mb-6">
+                <h3 className="text-2xl font-bold text-charcoal mb-6">
                   Store Hours
                 </h3>
                 <div className="space-y-4">
@@ -234,10 +279,10 @@ export default function ContactPage() {
                       key={schedule.day}
                       className="flex justify-between items-center pb-4 border-b border-gray-100 last:border-0 last:pb-0"
                     >
-                      <span className="font-[family-name:var(--font-urbanist)] text-charcoal">
+                      <span className="text-charcoal">
                         {schedule.day}
                       </span>
-                      <span className="font-[family-name:var(--font-urbanist)] text-burgundy font-semibold">
+                      <span className="text-burgundy font-semibold">
                         {schedule.hours}
                       </span>
                     </div>

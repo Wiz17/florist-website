@@ -50,7 +50,7 @@ export function HeroSectionFloralHaven() {
             className="flex items-center gap-3 mb-7"
           >
             <span className="block w-[3px] h-6 bg-cream/80" />
-            <span className="font-[family-name:var(--font-urbanist)] text-base tracking-wide text-cream/90">
+            <span className="text-base tracking-wide text-cream/90">
               Hot Flower
             </span>
           </motion.div>
@@ -60,7 +60,7 @@ export function HeroSectionFloralHaven() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="font-[family-name:var(--font-urbanist)] font-semibold text-cream leading-[1.05] tracking-[-0.01em] text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem]"
+            className="font-semibold text-cream leading-[1.05] tracking-[-0.01em] text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem]"
           >
             Fresh <BloomTitle className="text-blush-dark">Flowers</BloomTitle>
             <br />
@@ -72,10 +72,11 @@ export function HeroSectionFloralHaven() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="font-[family-name:var(--font-urbanist)] text-base sm:text-lg text-cream/75 leading-relaxed mt-7 max-w-lg"
+            className="text-base sm:text-lg text-cream/75 leading-relaxed mt-7 max-w-lg"
           >
-            Lorem Ipsum Is Simply Dummy Text Of The Printing And Has Been The
-            Industry&apos;s Standard Dummy Text.
+            Hand-tied bouquets and bespoke arrangements crafted from the
+            season&apos;s most beautiful stems &mdash; for the moments that
+            deserve more than a card.
           </motion.p>
 
           {/* Pink pill CTA */}
@@ -87,7 +88,7 @@ export function HeroSectionFloralHaven() {
           >
             <a
               href="/shop"
-              className="inline-flex items-center justify-center px-6 py-2.5 sm:px-10 sm:py-4 rounded-md bg-blush text-charcoal font-[family-name:var(--font-urbanist)] text-sm sm:text-base font-medium hover:bg-blush-light transition-colors"
+              className="inline-flex items-center justify-center px-6 py-2.5 sm:px-10 sm:py-4 rounded-md bg-blush text-charcoal text-sm sm:text-base font-medium hover:bg-blush-light transition-colors"
             >
               Start Shopping
             </a>

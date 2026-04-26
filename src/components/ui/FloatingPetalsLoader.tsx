@@ -1,5 +1,3 @@
-"use client";
-
 interface FloatingPetalsLoaderProps {
   message?: string;
   fullScreen?: boolean;
@@ -50,10 +48,10 @@ export function FloatingPetalsLoader({
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-burgundy rounded-full animate-pulse" />
         </div>
 
-        <p className="font-[family-name:var(--font-urbanist)] text-charcoal text-xl italic">
+        <p className="text-charcoal text-xl italic">
           {message}
         </p>
-        <p className="font-[family-name:var(--font-urbanist)] text-charcoal-light text-sm mt-2">
+        <p className="text-charcoal-light text-sm mt-2">
           Bloom & Petal
         </p>
       </div>

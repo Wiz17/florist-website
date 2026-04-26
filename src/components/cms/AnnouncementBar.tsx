@@ -28,13 +28,13 @@ export function AnnouncementBar() {
         className="bg-burgundy text-white text-center overflow-hidden"
       >
         <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-2 sm:px-8 py-1 sm:py-2">
-          <span className="font-[family-name:var(--font-urbanist)] text-xs sm:text-sm font-medium tracking-wide">
+          <span className="text-xs sm:text-sm font-medium tracking-wide">
             {festival.announcementText}
           </span>
           {festival.ctaLink && (
             <Link
               href={festival.ctaLink}
-              className="font-[family-name:var(--font-urbanist)] text-xs sm:text-sm font-bold underline underline-offset-2 hover:opacity-80 transition-opacity"
+              className="text-xs sm:text-sm font-bold underline underline-offset-2 hover:opacity-80 transition-opacity"
             >
               {festival.ctaText || 'Shop Now'}
             </Link>

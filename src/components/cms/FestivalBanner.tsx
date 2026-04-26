@@ -116,7 +116,7 @@ export function FestivalBanner() {
                           initial={{ x: -20, opacity: 0 }}
                           animate={{ x: 0, opacity: 1 }}
                           transition={{ delay: 0.1 }}
-                          className="inline-block mb-1.5 sm:mb-1.5 px-2.5 py-1 sm:px-2.5 sm:py-1 md:px-3 md:py-1 lg:px-3.5 lg:py-1.5 rounded-full font-[family-name:var(--font-urbanist)] font-bold text-xs sm:text-xs md:text-sm lg:text-sm bg-white/25 backdrop-blur-md border border-white/30 shadow-lg"
+                          className="inline-block mb-1.5 sm:mb-1.5 px-2.5 py-1 sm:px-2.5 sm:py-1 md:px-3 md:py-1 lg:px-3.5 lg:py-1.5 rounded-full font-bold text-xs sm:text-xs md:text-sm lg:text-sm bg-white/25 backdrop-blur-md border border-white/30 shadow-lg"
                           style={{ color: textColor }}
                         >
                           {festival.offerText}
@@ -128,7 +128,7 @@ export function FestivalBanner() {
                           initial={{ x: -20, opacity: 0 }}
                           animate={{ x: 0, opacity: 1 }}
                           transition={{ delay: 0.2 }}
-                          className="font-[family-name:var(--font-urbanist)] text-base sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-1 sm:mb-1 leading-tight truncate"
+                          className="text-base sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-1 sm:mb-1 leading-tight truncate"
                           style={{ color: textColor }}
                         >
                           {festival.title}
@@ -140,7 +140,7 @@ export function FestivalBanner() {
                           initial={{ x: -20, opacity: 0 }}
                           animate={{ x: 0, opacity: 1 }}
                           transition={{ delay: 0.3 }}
-                          className="hidden sm:block font-[family-name:var(--font-urbanist)] text-xs md:text-sm lg:text-base opacity-95 leading-snug line-clamp-1"
+                          className="hidden sm:block text-xs md:text-sm lg:text-base opacity-95 leading-snug line-clamp-1"
                           style={{ color: textColor }}
                         >
                           {festival.description}
@@ -160,7 +160,7 @@ export function FestivalBanner() {
                           transition={{ delay: 0.4 }}
                           whileHover={{ scale: 1.05, y: -2 }}
                           whileTap={{ scale: 0.95 }}
-                          className="relative px-4 py-2 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 rounded-full font-[family-name:var(--font-urbanist)] font-semibold text-xs sm:text-xs md:text-sm lg:text-base bg-white text-burgundy hover:bg-cream transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-1.5 sm:gap-1.5 md:gap-2 group overflow-hidden whitespace-nowrap"
+                          className="relative px-4 py-2 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 rounded-full font-semibold text-xs sm:text-xs md:text-sm lg:text-base bg-white text-burgundy hover:bg-cream transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-1.5 sm:gap-1.5 md:gap-2 group overflow-hidden whitespace-nowrap"
                         >
                           <span className="relative z-10">{festival.ctaText}</span>
                           <motion.span

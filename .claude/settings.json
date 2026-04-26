@@ -3,7 +3,8 @@
     "allow": [
       "Read(//c/Users/saifm/.agents/skills$f/**)",
       "Bash(rtk tsc *)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }

@@ -21,7 +21,7 @@ export function FeaturedSection() {
     staleTime: 0,
   });
   return (
-    <section className="py-24 px-6 bg-cream" id="shop">
+    <section className="py-24 px-6 bg-cream-dark" id="shop">
       <div className="max-w-7xl mx-auto">
         <motion.div
           variants={staggerContainer}
@@ -33,13 +33,13 @@ export function FeaturedSection() {
           <div>
             <motion.p
               variants={fadeInUp}
-              className="font-[family-name:var(--font-urbanist)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
+              className="text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
             >
               Curated Collections
             </motion.p>
             <motion.h2
               variants={fadeInUp}
-              className="font-[family-name:var(--font-urbanist)] text-4xl md:text-5xl font-bold text-charcoal"
+              className="text-4xl md:text-5xl font-bold text-charcoal"
             >
               Featured Arrangements
             </motion.h2>
@@ -48,7 +48,7 @@ export function FeaturedSection() {
             <motion.button
               variants={fadeInUp}
               whileHover={{ scale: 1.05, x: 5 }}
-              className="mt-6 md:mt-0 font-[family-name:var(--font-urbanist)] text-burgundy flex items-center gap-2 group"
+              className="mt-6 md:mt-0 text-burgundy flex items-center gap-2 group"
             >
               View All Collections
               <span className="group-hover:translate-x-2 transition-transform">
@@ -60,13 +60,13 @@ export function FeaturedSection() {
 
         {isLoading ? (
           <div className="text-center py-12">
-            <p className="font-[family-name:var(--font-urbanist)] text-charcoal-light">
+            <p className="text-charcoal-light">
               Loading featured products...
             </p>
           </div>
         ) : products.length === 0 ? (
           <div className="text-center py-12">
-            <p className="font-[family-name:var(--font-urbanist)] text-charcoal-light">
+            <p className="text-charcoal-light">
               No featured products available. Mark products as "Featured" in Sanity Studio.
             </p>
           </div>

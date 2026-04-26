@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { slideInLeft, slideInRight } from "@/lib/animations";
 
 export function StorySection() {
   return (
-    <section className="py-24 px-6 bg-blush-light overflow-hidden" id="about">
+    <section className="py-24 px-6 bg-cream overflow-hidden" id="about">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -15,34 +16,33 @@ export function StorySection() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <p className="font-[family-name:var(--font-urbanist)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4">
+            <p className="text-sage-dark tracking-[0.3em] uppercase text-sm mb-4">
               Our Story
             </p>
-            <h2 className="font-[family-name:var(--font-urbanist)] text-4xl md:text-5xl font-bold text-charcoal mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-6">
               Crafted with Love,
               <br />
               <span className="text-burgundy italic">
                 Delivered with Care
               </span>
             </h2>
-            <p className="font-[family-name:var(--font-urbanist)] text-charcoal-light text-lg mb-6 leading-relaxed">
+            <p className="text-charcoal-light text-lg mb-6 leading-relaxed">
               Founded in 2010, Bloom & Petal began as a small passion project in
               a tiny studio. Today, we&apos;ve grown into a beloved local
               florist, but our commitment remains unchanged: creating stunning
               floral arrangements that bring joy to every occasion.
             </p>
-            <p className="font-[family-name:var(--font-urbanist)] text-charcoal-light text-lg mb-8 leading-relaxed">
+            <p className="text-charcoal-light text-lg mb-8 leading-relaxed">
               Every bouquet we create tells a story. We source our flowers from
               local growers and sustainable farms, ensuring that each bloom is
               as fresh as it is beautiful.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-sage text-white px-8 py-4 rounded-full font-[family-name:var(--font-urbanist)] text-lg hover:bg-sage-dark transition-colors"
+            <Link
+              href="/about"
+              className="inline-flex items-center justify-center bg-sage text-white px-8 py-4 rounded-full text-lg hover:bg-sage-dark transition-colors"
             >
               Learn More About Us
-            </motion.button>
+            </Link>
           </motion.div>
 
           <motion.div

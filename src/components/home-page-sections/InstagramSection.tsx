@@ -14,13 +14,13 @@ const images = [
 
 export function InstagramSection() {
   return (
-    <section className="py-16 bg-cream-dark">
+    <section className="py-16 bg-blush-light">
       <div className="max-w-7xl mx-auto px-6 mb-12 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-[family-name:var(--font-urbanist)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
+          className="text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
         >
           Follow Our Journey
         </motion.p>
@@ -29,7 +29,7 @@ export function InstagramSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           viewport={{ once: true }}
-          className="font-[family-name:var(--font-urbanist)] text-3xl md:text-4xl font-bold text-charcoal"
+          className="text-3xl md:text-4xl font-bold text-charcoal"
         >
           @bloomandpetal
         </motion.h2>
@@ -53,7 +53,7 @@ export function InstagramSection() {
               gradient={item.gradient}
             />
             <div className="absolute inset-0 bg-burgundy/0 group-hover:bg-burgundy/40 transition-colors flex items-center justify-center">
-              <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity font-[family-name:var(--font-urbanist)]">
+              <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity">
                 View Post
               </span>
             </div>

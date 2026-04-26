@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
@@ -38,19 +39,19 @@ export function CTASection() {
         >
           <motion.p
             variants={fadeInUp}
-            className="font-[family-name:var(--font-urbanist)] text-blush-light tracking-[0.3em] uppercase text-sm mb-4"
+            className="text-blush-light tracking-[0.3em] uppercase text-sm mb-4"
           >
             Ready to Order?
           </motion.p>
           <motion.h2
             variants={fadeInUp}
-            className="font-[family-name:var(--font-urbanist)] text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
           >
             Let&apos;s Create Something Beautiful Together
           </motion.h2>
           <motion.p
             variants={fadeInUp}
-            className="font-[family-name:var(--font-urbanist)] text-blush-light text-lg mb-10 max-w-2xl mx-auto"
+            className="text-blush-light text-lg mb-10 max-w-2xl mx-auto"
           >
             Whether it&apos;s a special occasion or just because, our team is
             ready to craft the perfect arrangement for you.
@@ -59,23 +60,18 @@ export function CTASection() {
             variants={fadeInUp}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 10px 40px rgba(255,255,255,0.2)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-burgundy px-10 py-4 rounded-full font-[family-name:var(--font-urbanist)] text-lg hover:bg-cream transition-colors"
+            <Link
+              href="/shop"
+              className="inline-flex items-center justify-center bg-white text-burgundy px-10 py-4 rounded-full text-lg hover:bg-cream transition-colors"
             >
               Shop Now
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="border-2 border-white text-white px-10 py-4 rounded-full font-[family-name:var(--font-urbanist)] text-lg hover:bg-white/10 transition-colors"
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center border-2 border-white text-white px-10 py-4 rounded-full text-lg hover:bg-white/10 transition-colors"
             >
               Contact Us
-            </motion.button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

@@ -30,7 +30,7 @@ export function CategoryFilter({
               onClick={() => onCategoryChange(category)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-6 py-2 rounded-full font-[family-name:var(--font-urbanist)] transition-all ${
+              className={`px-6 py-2 rounded-full transition-all ${
                 activeCategory === category
                   ? "bg-burgundy text-white"
                   : "bg-white text-charcoal hover:bg-blush-light"
