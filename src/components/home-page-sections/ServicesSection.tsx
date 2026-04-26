@@ -71,13 +71,13 @@ export function ServicesSection() {
         >
           <motion.p
             variants={fadeInUp}
-            className="font-[family-name:var(--font-lato)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
+            className="font-[family-name:var(--font-urbanist)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
           >
             What We Offer
           </motion.p>
           <motion.h2
             variants={fadeInUp}
-            className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl font-bold text-charcoal"
+            className="font-[family-name:var(--font-urbanist)] text-4xl md:text-5xl font-bold text-charcoal"
           >
             Our Services
           </motion.h2>
@@ -122,20 +122,20 @@ export function ServicesSection() {
 
                 {/* Title */}
                 <h3
-                  className="font-[family-name:var(--font-playfair)] text-xl font-bold mb-3 transition-colors duration-300 group-hover:text-burgundy"
+                  className="font-[family-name:var(--font-urbanist)] text-xl font-bold mb-3 transition-colors duration-300 group-hover:text-burgundy"
                   style={{ color: "#2D2D2D" }}
                 >
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="font-[family-name:var(--font-lato)] text-charcoal-light text-sm leading-relaxed mb-6">
+                <p className="font-[family-name:var(--font-urbanist)] text-charcoal-light text-sm leading-relaxed mb-6">
                   {service.description}
                 </p>
 
                 {/* Learn more link */}
                 <motion.div
-                  className="flex items-center gap-2 font-[family-name:var(--font-lato)] text-sm font-semibold transition-all duration-300"
+                  className="flex items-center gap-2 font-[family-name:var(--font-urbanist)] text-sm font-semibold transition-all duration-300"
                   style={{ color: service.color }}
                   whileHover={{ x: 5 }}
                 >

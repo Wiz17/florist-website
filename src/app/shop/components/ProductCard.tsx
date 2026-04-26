@@ -43,7 +43,7 @@ export function ProductCard({
           />
         </motion.div>
         {product.tag && (
-          <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-[family-name:var(--font-lato)] text-charcoal z-10">
+          <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-[family-name:var(--font-urbanist)] text-charcoal z-10">
             {product.tag}
           </span>
         )}
@@ -60,27 +60,27 @@ export function ProductCard({
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="bg-white text-charcoal px-6 py-3 rounded-full font-[family-name:var(--font-lato)]"
+            className="bg-white text-charcoal px-6 py-3 rounded-full font-[family-name:var(--font-urbanist)]"
           >
             {buttonText}
           </motion.button>
         </motion.div>
       </div>
       <div>
-        <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-charcoal group-hover:text-burgundy transition-colors">
+        <h3 className="font-[family-name:var(--font-urbanist)] text-xl font-bold text-charcoal group-hover:text-burgundy transition-colors">
           {product.name}
         </h3>
         {priceInfo.isAdjusted ? (
           <div className="flex items-center gap-2 mt-1">
-            <span className="font-[family-name:var(--font-lato)] text-sage-dark text-lg font-semibold">
+            <span className="font-[family-name:var(--font-urbanist)] text-sage-dark text-lg font-semibold">
               ${priceInfo.currentPrice.toFixed(2)}
             </span>
-            <span className="font-[family-name:var(--font-lato)] text-sm line-through text-charcoal-light">
+            <span className="font-[family-name:var(--font-urbanist)] text-sm line-through text-charcoal-light">
               ${priceInfo.originalPrice.toFixed(2)}
             </span>
           </div>
         ) : (
-          <p className="font-[family-name:var(--font-lato)] text-sage-dark text-lg">
+          <p className="font-[family-name:var(--font-urbanist)] text-sage-dark text-lg">
             ${priceInfo.originalPrice.toFixed(2)}
           </p>
         )}

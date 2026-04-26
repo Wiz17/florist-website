@@ -42,10 +42,10 @@ export function Footer() {
           className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12"
         >
           <motion.div variants={fadeInUp} className="col-span-1 md:col-span-2">
-            <h3 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-white mb-4">
+            <h3 className="font-[family-name:var(--font-urbanist)] text-2xl font-bold text-white mb-4">
               Bloom & Petal
             </h3>
-            <p className="font-[family-name:var(--font-lato)] text-gray-400 mb-6 max-w-md">
+            <p className="font-[family-name:var(--font-urbanist)] text-gray-400 mb-6 max-w-md">
               Artisan florist creating beautiful, sustainable floral
               arrangements for all of life&apos;s moments.
             </p>
@@ -54,7 +54,7 @@ export function Footer() {
                 <motion.a
                   key={social}
                   whileHover={{ y: -3, color: "#E8C4C4" }}
-                  className="text-gray-400 hover:text-blush transition-colors font-[family-name:var(--font-lato)]"
+                  className="text-gray-400 hover:text-blush transition-colors font-[family-name:var(--font-urbanist)]"
                   href="#"
                 >
                   {social}
@@ -64,7 +64,7 @@ export function Footer() {
           </motion.div>
 
           <motion.div variants={fadeInUp}>
-            <h4 className="font-[family-name:var(--font-playfair)] text-lg font-bold text-white mb-4">
+            <h4 className="font-[family-name:var(--font-urbanist)] text-lg font-bold text-white mb-4">
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -72,7 +72,7 @@ export function Footer() {
                 <li key={link}>
                   <motion.a
                     whileHover={{ x: 5, color: "#E8C4C4" }}
-                    className="text-gray-400 hover:text-blush transition-colors font-[family-name:var(--font-lato)]"
+                    className="text-gray-400 hover:text-blush transition-colors font-[family-name:var(--font-urbanist)]"
                     href="#"
                   >
                     {link}
@@ -83,10 +83,10 @@ export function Footer() {
           </motion.div>
 
           <motion.div variants={fadeInUp}>
-            <h4 className="font-[family-name:var(--font-playfair)] text-lg font-bold text-white mb-4">
+            <h4 className="font-[family-name:var(--font-urbanist)] text-lg font-bold text-white mb-4">
               Contact
             </h4>
-            <ul className="space-y-3 font-[family-name:var(--font-lato)] text-gray-400">
+            <ul className="space-y-3 font-[family-name:var(--font-urbanist)] text-gray-400">
               <li>123 Flower Street</li>
               <li>Garden City, GC 12345</li>
               <li>hello@bloomandpetal.com</li>
@@ -102,7 +102,7 @@ export function Footer() {
           viewport={{ once: true }}
           className="border-t border-gray-700 pt-8 text-center"
         >
-          <p className="font-[family-name:var(--font-lato)] text-gray-500">
+          <p className="font-[family-name:var(--font-urbanist)] text-gray-500">
             © 2025 Bloom & Petal. All rights reserved. Made with love and fresh
             flowers.
           </p>

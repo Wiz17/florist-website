@@ -41,7 +41,7 @@ export function ProductsEmpty() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl font-bold text-charcoal mb-3"
+          className="font-[family-name:var(--font-urbanist)] text-2xl md:text-3xl font-bold text-charcoal mb-3"
         >
           No Products Found
         </motion.h3>
@@ -51,7 +51,7 @@ export function ProductsEmpty() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="font-[family-name:var(--font-lato)] text-charcoal-light mb-8 leading-relaxed"
+          className="font-[family-name:var(--font-urbanist)] text-charcoal-light mb-8 leading-relaxed"
         >
           We couldn&apos;t find any products in this category. Try exploring other collections or check back soon for new arrivals.
         </motion.p>

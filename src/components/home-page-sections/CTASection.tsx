@@ -38,19 +38,19 @@ export function CTASection() {
         >
           <motion.p
             variants={fadeInUp}
-            className="font-[family-name:var(--font-lato)] text-blush-light tracking-[0.3em] uppercase text-sm mb-4"
+            className="font-[family-name:var(--font-urbanist)] text-blush-light tracking-[0.3em] uppercase text-sm mb-4"
           >
             Ready to Order?
           </motion.p>
           <motion.h2
             variants={fadeInUp}
-            className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+            className="font-[family-name:var(--font-urbanist)] text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
           >
             Let&apos;s Create Something Beautiful Together
           </motion.h2>
           <motion.p
             variants={fadeInUp}
-            className="font-[family-name:var(--font-lato)] text-blush-light text-lg mb-10 max-w-2xl mx-auto"
+            className="font-[family-name:var(--font-urbanist)] text-blush-light text-lg mb-10 max-w-2xl mx-auto"
           >
             Whether it&apos;s a special occasion or just because, our team is
             ready to craft the perfect arrangement for you.
@@ -65,14 +65,14 @@ export function CTASection() {
                 boxShadow: "0 10px 40px rgba(255,255,255,0.2)",
               }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-burgundy px-10 py-4 rounded-full font-[family-name:var(--font-lato)] text-lg hover:bg-cream transition-colors"
+              className="bg-white text-burgundy px-10 py-4 rounded-full font-[family-name:var(--font-urbanist)] text-lg hover:bg-cream transition-colors"
             >
               Shop Now
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="border-2 border-white text-white px-10 py-4 rounded-full font-[family-name:var(--font-lato)] text-lg hover:bg-white/10 transition-colors"
+              className="border-2 border-white text-white px-10 py-4 rounded-full font-[family-name:var(--font-urbanist)] text-lg hover:bg-white/10 transition-colors"
             >
               Contact Us
             </motion.button>

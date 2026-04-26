@@ -30,7 +30,7 @@ export function ImagePlaceholder({
           className="absolute inset-0 flex items-center justify-center bg-gray-200"
           style={gradient ? { background: gradient } : undefined}
         >
-          <span className="text-white/60 font-[family-name:var(--font-lato)] text-sm text-center px-4">
+          <span className="text-white/60 font-[family-name:var(--font-urbanist)] text-sm text-center px-4">
             {alt}
           </span>
         </div>

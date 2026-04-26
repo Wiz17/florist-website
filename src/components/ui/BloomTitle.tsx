@@ -2,7 +2,12 @@
 
 import { motion } from "framer-motion";
 
-export function BloomTitle() {
+interface BloomTitleProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export function BloomTitle({ children = "Bloom", className = "text-burgundy italic" }: BloomTitleProps) {
   return (
     <div className="relative inline-block">
       {/* First Butterfly - flies around the word */}
@@ -154,14 +159,14 @@ export function BloomTitle() {
         <circle cx="64" cy="50" r="3" fill="#fff" opacity="0.5" />
       </motion.svg>
 
-      {/* The word "Bloom" */}
+      {/* The word */}
       <motion.span
-        className="text-burgundy italic relative z-10"
+        className={`relative z-10 ${className}`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        Bloom
+        {children}
       </motion.span>
     </div>
   );

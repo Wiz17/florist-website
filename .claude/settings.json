@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/saifm/.agents/skills$f/**)",
+      "Bash(rtk tsc *)",
+      "Bash(npx tsc *)"
+    ]
+  }
+}

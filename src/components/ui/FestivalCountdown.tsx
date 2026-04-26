@@ -64,7 +64,7 @@ export function FestivalCountdown({ endDate }: FestivalCountdownProps) {
   );
 
   return (
-    <div className="mt-2 font-[family-name:var(--font-lato)]">
+    <div className="mt-2 font-[family-name:var(--font-urbanist)]">
       <span
         className={`block text-[10px] font-semibold uppercase tracking-wide mb-1 ${
           isUrgent ? 'text-burgundy' : 'text-charcoal-light'

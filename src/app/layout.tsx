@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Lato } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import "./globals.css";
 import { baseMetadata } from "@/lib/metadata";
 import { QueryProvider } from "@/lib/providers/QueryProvider";
 import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const urbanist = Urbanist({
+  variable: "--font-urbanist",
   subsets: ["latin"],
-  display: "swap",
-});
-
-const lato = Lato({
-  variable: "--font-lato",
-  subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -27,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${lato.variable} antialiased overflow-x-hidden`}>
+      <body className={`${urbanist.variable} font-[family-name:var(--font-urbanist)] antialiased overflow-x-hidden`}>
         <QueryProvider>
           <ConditionalLayout>
             {children}

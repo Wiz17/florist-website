@@ -71,21 +71,21 @@ export default function AboutPage() {
               initial="hidden"
               animate="visible"
             >
-              <p className="font-[family-name:var(--font-lato)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4">
+              <p className="font-[family-name:var(--font-urbanist)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4">
                 Our Story
               </p>
-              <h1 className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl font-bold text-charcoal mb-6">
+              <h1 className="font-[family-name:var(--font-urbanist)] text-5xl md:text-6xl font-bold text-charcoal mb-6">
                 Bringing Nature&apos;s Beauty
                 <br />
                 <span className="text-burgundy italic">Into Your Life</span>
               </h1>
-              <p className="font-[family-name:var(--font-lato)] text-lg text-charcoal-light mb-6 leading-relaxed">
+              <p className="font-[family-name:var(--font-urbanist)] text-lg text-charcoal-light mb-6 leading-relaxed">
                 Founded in 2010 by Sarah Mitchell, Bloom & Petal started as a small
                 passion project in a tiny studio apartment. What began as a love for
                 flowers and design has blossomed into Garden City&apos;s most beloved
                 florist.
               </p>
-              <p className="font-[family-name:var(--font-lato)] text-lg text-charcoal-light leading-relaxed">
+              <p className="font-[family-name:var(--font-urbanist)] text-lg text-charcoal-light leading-relaxed">
                 Today, our team of talented florists creates stunning arrangements
                 for weddings, events, and everyday moments. We believe that flowers
                 have the power to transform spaces and touch hearts.
@@ -129,13 +129,13 @@ export default function AboutPage() {
           >
             <motion.p
               variants={fadeInUp}
-              className="font-[family-name:var(--font-lato)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
+              className="font-[family-name:var(--font-urbanist)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
             >
               What We Stand For
             </motion.p>
             <motion.h2
               variants={fadeInUp}
-              className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl font-bold text-charcoal"
+              className="font-[family-name:var(--font-urbanist)] text-4xl md:text-5xl font-bold text-charcoal"
             >
               Our Values
             </motion.h2>
@@ -158,10 +158,10 @@ export default function AboutPage() {
                 <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-blush-light flex items-center justify-center text-burgundy">
                   {value.icon}
                 </div>
-                <h3 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-charcoal mb-4">
+                <h3 className="font-[family-name:var(--font-urbanist)] text-2xl font-bold text-charcoal mb-4">
                   {value.title}
                 </h3>
-                <p className="font-[family-name:var(--font-lato)] text-charcoal-light">
+                <p className="font-[family-name:var(--font-urbanist)] text-charcoal-light">
                   {value.description}
                 </p>
               </motion.div>
@@ -182,13 +182,13 @@ export default function AboutPage() {
           >
             <motion.p
               variants={fadeInUp}
-              className="font-[family-name:var(--font-lato)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
+              className="font-[family-name:var(--font-urbanist)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
             >
               Meet The Team
             </motion.p>
             <motion.h2
               variants={fadeInUp}
-              className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl font-bold text-charcoal"
+              className="font-[family-name:var(--font-urbanist)] text-4xl md:text-5xl font-bold text-charcoal"
             >
               The Faces Behind the Blooms
             </motion.h2>
@@ -222,10 +222,10 @@ export default function AboutPage() {
                     />
                   </motion.div>
                 </div>
-                <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-charcoal group-hover:text-burgundy transition-colors text-center">
+                <h3 className="font-[family-name:var(--font-urbanist)] text-xl font-bold text-charcoal group-hover:text-burgundy transition-colors text-center">
                   {member.name}
                 </h3>
-                <p className="font-[family-name:var(--font-lato)] text-charcoal-light text-center">
+                <p className="font-[family-name:var(--font-urbanist)] text-charcoal-light text-center">
                   {member.role}
                 </p>
               </motion.div>

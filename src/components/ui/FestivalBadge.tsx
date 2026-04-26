@@ -44,7 +44,7 @@ export function FestivalBadge({ festival }: FestivalBadgeProps) {
         <path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6L5.7 21l2.3-7-6-4.6h7.6L12 2z" />
       </svg>
 
-      <span className="relative font-[family-name:var(--font-lato)] text-xs font-bold text-white tracking-wide">
+      <span className="relative font-[family-name:var(--font-urbanist)] text-xs font-bold text-white tracking-wide">
         Festive Offer
       </span>
     </motion.div>

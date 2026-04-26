@@ -41,13 +41,13 @@ export function TestimonialsSection() {
         >
           <motion.p
             variants={fadeInUp}
-            className="font-[family-name:var(--font-lato)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
+            className="font-[family-name:var(--font-urbanist)] text-sage-dark tracking-[0.3em] uppercase text-sm mb-4"
           >
             Kind Words
           </motion.p>
           <motion.h2
             variants={fadeInUp}
-            className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl font-bold text-charcoal"
+            className="font-[family-name:var(--font-urbanist)] text-4xl md:text-5xl font-bold text-charcoal"
           >
             What Our Customers Say
           </motion.h2>
@@ -70,7 +70,7 @@ export function TestimonialsSection() {
               <div className="text-6xl text-blush absolute -top-4 left-6 font-serif">
                 &ldquo;
               </div>
-              <p className="font-[family-name:var(--font-lato)] text-charcoal-light text-lg mb-6 pt-6 leading-relaxed">
+              <p className="font-[family-name:var(--font-urbanist)] text-charcoal-light text-lg mb-6 pt-6 leading-relaxed">
                 {testimonial.text}
               </p>
               <div className="flex items-center gap-4">
@@ -83,10 +83,10 @@ export function TestimonialsSection() {
                   />
                 </div>
                 <div>
-                  <p className="font-[family-name:var(--font-playfair)] font-bold text-charcoal">
+                  <p className="font-[family-name:var(--font-urbanist)] font-bold text-charcoal">
                     {testimonial.author}
                   </p>
-                  <p className="font-[family-name:var(--font-lato)] text-sm text-charcoal-light">
+                  <p className="font-[family-name:var(--font-urbanist)] text-sm text-charcoal-light">
                     {testimonial.role}
                   </p>
                 </div>
