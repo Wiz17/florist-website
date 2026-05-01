@@ -61,7 +61,7 @@ export function CTASection() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link
-              href="/shop"
+              href="/shop/all"
               className="inline-flex items-center justify-center bg-white text-burgundy px-10 py-4 rounded-full text-lg hover:bg-cream transition-colors"
             >
               Shop Now

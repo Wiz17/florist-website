@@ -44,7 +44,7 @@ export function FeaturedSection() {
               Featured Arrangements
             </motion.h2>
           </div>
-          <Link href="/shop">
+          <Link href="/shop/all">
             <motion.button
               variants={fadeInUp}
               whileHover={{ scale: 1.05, x: 5 }}

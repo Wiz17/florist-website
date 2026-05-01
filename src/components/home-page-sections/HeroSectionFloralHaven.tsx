@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { BloomTitle } from '@/components/ui/BloomTitle';
 
 export function HeroSectionFloralHaven() {
@@ -86,12 +87,12 @@ export function HeroSectionFloralHaven() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-9"
           >
-            <a
-              href="/shop"
+            <Link
+              href="/shop/all"
               className="inline-flex items-center justify-center px-6 py-2.5 sm:px-10 sm:py-4 rounded-md bg-blush text-charcoal text-sm sm:text-base font-medium hover:bg-blush-light transition-colors"
             >
               Start Shopping
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>

@@ -28,8 +28,9 @@ export function ProductsSection({
   onRetry,
   activeFestivals = [],
 }: ProductsSectionProps) {
-  // Early return pattern - Option 1
-  if (isLoading || isRefetching) {
+  // Only show loader on the *initial* fetch (when there's no cached data yet).
+  // Background refetches (isRefetching) keep the cached UI on screen.
+  if (isLoading) {
     return (
       <section className="px-6 pb-24">
         <div className="max-w-7xl mx-auto">

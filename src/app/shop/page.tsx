@@ -1,41 +1,5 @@
-"use client";
-
-import { useShopHandler } from "./hooks/useShopHandler";
-import { ShopHeroBanner } from "./page-sections/ShopHeroBanner";
-import { CategoryFilter } from "./page-sections/CategoryFilter";
-import { ProductsSection } from "./page-sections/ProductsSection";
+import { redirect } from "next/navigation";
 
 export default function ShopPage() {
-  const {
-    activeCategory,
-    setActiveCategory,
-    categories,
-    products,
-    isLoading,
-    isError,
-    error,
-    refetch,
-    isRefetching,
-    activeFestivals,
-  } = useShopHandler();
-
-  return (
-    <div className="relative min-h-screen bg-cream">
-      <ShopHeroBanner />
-      <CategoryFilter
-        categories={categories}
-        activeCategory={activeCategory}
-        onCategoryChange={setActiveCategory}
-      />
-      <ProductsSection
-        products={products}
-        isLoading={isLoading}
-        isRefetching={isRefetching}
-        isError={isError}
-        error={error}
-        onRetry={() => refetch()}
-        activeFestivals={activeFestivals}
-      />
-    </div>
-  );
+  redirect("/shop/all");
 }

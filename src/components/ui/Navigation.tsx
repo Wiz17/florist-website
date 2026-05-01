@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Shop", href: "/shop" },
+  { name: "Shop", href: "/shop/all" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
@@ -119,7 +119,7 @@ export function Navigation() {
           </div>
 
           {/* Desktop Order Button */}
-          <Link href="/shop" className="hidden md:block">
+          <Link href="/shop/all" className="hidden md:block">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -223,7 +223,7 @@ export function Navigation() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
-                  <Link href="/shop" onClick={closeMobileMenu}>
+                  <Link href="/shop/all" onClick={closeMobileMenu}>
                     <button className="w-full py-3 px-6 rounded-full font-semibold bg-[#2D2D2D] text-white hover:bg-burgundy transition-colors duration-300">
                       Order Now
                     </button>
