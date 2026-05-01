@@ -11,14 +11,15 @@ export function FeaturedSection() {
   const { data: products = [], isLoading } = useQuery({
     queryKey: ["featured-products"],
     queryFn: getFeaturedProducts,
-    select: (data) => data.slice(0, 6), // Limit to 6 products for the featured section
+    select: (data) => data.slice(0, 6),
+    staleTime: 5 * 60 * 1000,
   });
 
   const { data: activeFestivals = [] } = useQuery({
     queryKey: ['active-festivals'],
     queryFn: getActiveFestivals,
-    refetchInterval: 60 * 1000, // Refetch every minute
-    staleTime: 0,
+    refetchInterval: 60 * 1000,
+    staleTime: 60 * 1000,
   });
   return (
     <section className="py-24 px-6 bg-cream-dark" id="shop">
